@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clipboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clipboard
+  template:
+    metadata:
+      labels:
+        app: clipboard
+    spec:
+      terminationGracePeriodSeconds: 30
+      restartPolicy: Always
+      containers:
+        - name: clipboard
+          image: ghcr.io/desecho/clipboard:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4173
+          livenessProbe:
+            httpGet:
+              path: /health/
+              port: 4173
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health/
+              port: 4173
+            initialDelaySeconds: 5
+            periodSeconds: 5

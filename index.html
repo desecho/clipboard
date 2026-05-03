@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clipboard</title>
+  </head>
+  <body>
+    <div id="app">
+      <main class="shell">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Shared note</p>
+            <h1>Clipboard</h1>
+          </div>
+          <div class="status" id="status" role="status" aria-live="polite">Loading</div>
+        </header>
+
+        <section class="editor" aria-label="Clipboard editor">
+          <textarea
+            id="clipboard"
+            spellcheck="true"
+            autocomplete="off"
+            placeholder="Type or paste text"
+          ></textarea>
+
+          <footer class="editor-footer">
+            <span id="details">0 characters</span>
+            <button id="clear" type="button">Clear</button>
+          </footer>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
