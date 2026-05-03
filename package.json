@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "tsc && vite build",
-    "preview": "vite preview --host 0.0.0.0"
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "tsc -p tsconfig.json && vite build",
+    "build:server": "tsc -p tsconfig.server.json",
+    "preview": "vite preview --host 0.0.0.0",
+    "start": "node server-dist/index.js"
   },
   "devDependencies": {
     "@types/node": "^22.15.3",

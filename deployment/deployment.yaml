@@ -23,13 +23,13 @@ spec:
             - containerPort: 4173
           livenessProbe:
             httpGet:
-              path: /health/
+              path: /health
               port: 4173
             initialDelaySeconds: 30
             periodSeconds: 10
           readinessProbe:
             httpGet:
-              path: /health/
+              path: /health
               port: 4173
             initialDelaySeconds: 5
             periodSeconds: 5
